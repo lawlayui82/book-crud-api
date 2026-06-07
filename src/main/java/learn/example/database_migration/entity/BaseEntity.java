@@ -10,19 +10,21 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Getter
 @Setter
 @MappedSuperclass
+@NoArgsConstructor
 public class BaseEntity {
-    public BaseEntity(long id) {
+    public BaseEntity(Long id) {
         this.id = id;
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

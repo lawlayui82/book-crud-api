@@ -8,20 +8,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "books")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Book extends BaseEntity{
     @Builder
-    public Book(long id, String title, String description, String author, int year, BigDecimal price, int stock) {
+    public Book(Long id, String title, String description, String author, int year, BigDecimal price, int stock) {
         super(id);
         this.title = title;
         this.description = description;
         this.author = author;
-        this.year = year;
+        this.publication_year = year;
         this.price = price;
         this.stock = stock;
     }
@@ -34,7 +36,7 @@ public class Book extends BaseEntity{
     @Column(nullable = false, length = 255)
     private String description;
 
-    private int year;
+    private int publication_year;
 
     private BigDecimal price;
 

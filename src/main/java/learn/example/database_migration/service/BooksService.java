@@ -30,7 +30,7 @@ public class BooksService extends BaseService<Book, Long, BooksResponseDTO, Book
 
     public List<BooksResponseDTO> mapToResponse(List<Book> books) {
         List<BooksResponseDTO> booksResponse = books.stream()
-            .map((book) -> new BooksResponseDTO(book.getId(), book.getCreatedAt(), book.getUpdateAt(), book.getTitle(), book.getDescription(), book.getAuthor(), book.getPrice(), book.getStock(), book.getYear()))
+            .map((book) -> new BooksResponseDTO(book.getId(), book.getCreatedAt(), book.getUpdateAt(), book.getTitle(), book.getDescription(), book.getAuthor(), book.getPrice(), book.getStock(), book.getPublication_year()))
             .collect(Collectors.toList());
 
         return booksResponse;

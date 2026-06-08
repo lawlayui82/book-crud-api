@@ -1,4 +1,4 @@
-package learn.example.database_migration.api.dto;
+package learn.example.database_migration.api.dto.response;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BooksResponseDTO extends BaseDTO<Long>{
+public class BooksResponseDTO extends BaseResponseDTO<Long>{
     @Builder
     public BooksResponseDTO(Long id, LocalDateTime createdAt, LocalDateTime updateAt, String title, String description, String author, BigDecimal price, int stock, int year) {
         super(id, Instant.now(), createdAt, updateAt);

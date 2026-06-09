@@ -18,7 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Book extends BaseEntity<Long>{
     @Builder
-    public Book(Long id, String title, String description, String author, int year, BigDecimal price, int stock) {
+    public Book(Long id, String title, String description, String author, int year, BigDecimal price, Long stock) {
         super(id);
         this.title = title;
         this.description = description;
@@ -40,5 +40,5 @@ public class Book extends BaseEntity<Long>{
 
     private BigDecimal price;
 
-    private int stock;
+    private Long stock;
 }

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class BooksResponseDTO extends BaseResponseDTO<Long>{
     @Builder
-    public BooksResponseDTO(Long id, LocalDateTime createdAt, LocalDateTime updateAt, String title, String description, String author, BigDecimal price, int stock, int year) {
+    public BooksResponseDTO(Long id, LocalDateTime createdAt, LocalDateTime updateAt, String title, String description, String author, BigDecimal price, Long stock, int year) {
         super(id, Instant.now(), createdAt, updateAt);
         this.title = title;
         this.year = year;
@@ -25,6 +25,6 @@ public class BooksResponseDTO extends BaseResponseDTO<Long>{
     private String description;
     private String author;
     private BigDecimal price;
-    private int stock;
+    private Long stock;
     private int year;
 }

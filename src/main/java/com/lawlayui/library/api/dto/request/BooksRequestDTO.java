@@ -2,9 +2,11 @@ package com.lawlayui.library.api.dto.request;
 
 import java.math.BigDecimal;
 
-import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +17,7 @@ import lombok.Setter;
 public class BooksRequestDTO extends BaseRequestDTO{
 
     public BooksRequestDTO(String title,
-            String description, String author, BigDecimal price, int stock, int year) {
+            String description, String author, BigDecimal price, Long stock, int year) {
         this.year = year;
         this.title = title;
         this.description = description;
@@ -24,22 +26,26 @@ public class BooksRequestDTO extends BaseRequestDTO{
         this.stock = stock;
     }
     
-    @Max(value = 255, message = "The maximum title limit is 255 characters")
+    @NotBlank
+    @Size(max = 255, message = "The maximum title limit is 255 characters")
     private String title;
     
-    @Max(value = 255, message = "The maximum description limit is 255 characters")
+    @NotBlank
+    @Size(max = 255, message = "The maximum description limit is 255 characters")
     private String description;
 
-    @Max(value = 255, message = "The maximum author limit is 255 characters")
+    @NotBlank
+    @Size(max = 255, message = "The maximum author limit is 255 characters")
     private String author;
 
     @NotNull(message = "Price cannot be null")
-    @Min(value = 0, message = "Price cannot be zero")
+    @DecimalMin(value = "0.0", message = "price cannot be less than zero")
     private BigDecimal price;
 
     @NotNull(message = "Stock cannot be null")
     @Min(value = 0, message = "Stock cannot be zero")
-    private int stock;
+    private Long stock;
 
+    @NotNull(message = "year cannot be null")
     private int year;
 }

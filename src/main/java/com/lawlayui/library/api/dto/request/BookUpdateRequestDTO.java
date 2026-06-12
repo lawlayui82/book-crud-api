@@ -30,5 +30,5 @@ public class BookUpdateRequestDTO extends BaseRequestDTO{
 
     @Min(value = 0, message = "Stock minimal is 0")
     private Long stock;
-    private int year;
+    private int publication_year;
 }

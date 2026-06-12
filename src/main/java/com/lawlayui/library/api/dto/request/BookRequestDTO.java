@@ -17,8 +17,8 @@ import lombok.Setter;
 public class BookRequestDTO extends BaseRequestDTO{
 
     public BookRequestDTO(String title,
-            String description, String author, BigDecimal price, Long stock, int year) {
-        this.year = year;
+            String description, String author, BigDecimal price, Long stock, int pubication_year) {
+        this.pubication_year = pubication_year;
         this.title = title;
         this.description = description;
         this.author = author;
@@ -46,6 +46,6 @@ public class BookRequestDTO extends BaseRequestDTO{
     @Min(value = 0, message = "Stock cannot be zero")
     private Long stock;
 
-    @NotNull(message = "year cannot be null")
-    private int year;
+    @NotNull(message = "pubication_year cannot be null")
+    private int pubication_year;
 }

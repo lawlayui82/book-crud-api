@@ -13,6 +13,8 @@ import com.lawlayui.library.exception.ResourceNotFound;
 import com.lawlayui.library.repository.BooksRepository;
 import com.lawlayui.library.util.mapper.BookMapper;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class BookService extends BaseService<Book, Long, BookResponseDTO, BookRequestDTO, BookUpdateRequestDTO>{
     public BookService(BooksRepository repository, BookMapper mapper) {
@@ -28,6 +30,7 @@ public class BookService extends BaseService<Book, Long, BookResponseDTO, BookRe
         return booksResponse;
     }
 
+    @Transactional
     @Override
     public BookResponseDTO update(Long id, BookUpdateRequestDTO request) throws ResourceNotFound {
         Book book = repository.findById(id)

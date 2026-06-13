@@ -10,14 +10,14 @@ import com.lawlayui.library.api.dto.request.BookUpdateRequestDTO;
 import com.lawlayui.library.api.dto.response.BookResponseDTO;
 import com.lawlayui.library.entity.Book;
 import com.lawlayui.library.exception.ResourceNotFound;
-import com.lawlayui.library.repository.BooksRepository;
+import com.lawlayui.library.repository.BookRepository;
 import com.lawlayui.library.util.mapper.BookMapper;
 
 import jakarta.transaction.Transactional;
 
 @Service
 public class BookService extends BaseService<Book, Long, BookResponseDTO, BookRequestDTO, BookUpdateRequestDTO>{
-    public BookService(BooksRepository repository, BookMapper mapper) {
+    public BookService(BookRepository repository, BookMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
